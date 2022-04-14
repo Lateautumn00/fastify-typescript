@@ -1,0 +1,38 @@
+{
+    "apps": [
+        {
+            "name": "node-animal-http-5000",
+            "cwd": "./",
+            "script": "server.js",
+            "min_uptime": "60s",
+            "log_date_format": "YYYY-MM-DD HH:mm Z",
+            "error_file": "../pm2log/node-animal-http.stderr.log",
+            "out_file": "../pm2log/node-animal-http.stdout.log",
+            "pid_file": "../pm2log/node-animal-http-api.pid",
+            "merge_logs": true,
+            "max_restarts": 10,
+            "max_memory_restart": "2048M",
+            "watch": true,
+            "exec_interpreter": "node",
+            "exec_mode": "cluster_mode",
+            "instances": 4,
+            "autorestart": true,
+            "vizion": true,
+            "ignore_watch": [
+                "node_modules"
+            ],
+            "env": {
+                "NODE_ENV": "production",
+                "REMOTE_ADDR": ""
+            },
+            "env_dev": {
+                "NODE_ENV": "dev",
+                "REMOTE_ADDR": ""
+            },
+            "env_test": {
+                "NODE_ENV": "test",
+                "REMOTE_ADDR": ""
+            }
+        }
+    ]
+}
