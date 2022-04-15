@@ -10,15 +10,17 @@ mkdir node-animal-http
 cd node-animal-http
 npm init fastify
 yarn
+#代码编写监听运行
+yarn run watch
 
-# serve with hot reload at localhost:9080
+# 编译
+yarn run build
+
+#本地测试
 yarn run dev
 
-# build electron application for production
+# 线上
 yarn run start
-
-# run unit & end-to-end tests
-yarn run test
 
 #参数解析说明
 req.params // user/:id  解析  {id:1}

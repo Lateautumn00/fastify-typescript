@@ -1,14 +1,14 @@
 {
     "apps": [
         {
-            "name": "node-animal-http-5000",
+            "name": "fastify-typescript-5555",
             "cwd": "./",
-            "script": "server.js",
+            "script": "dist/index.js",
             "min_uptime": "60s",
             "log_date_format": "YYYY-MM-DD HH:mm Z",
-            "error_file": "../pm2log/node-animal-http.stderr.log",
-            "out_file": "../pm2log/node-animal-http.stdout.log",
-            "pid_file": "../pm2log/node-animal-http-api.pid",
+            "error_file": "../pm2log/fastify-typescript-http.stderr.log",
+            "out_file": "../pm2log/fastify-typescript-http.stdout.log",
+            "pid_file": "../pm2log/fastify-typescript-http-api.pid",
             "merge_logs": true,
             "max_restarts": 10,
             "max_memory_restart": "2048M",
