@@ -1,13 +1,15 @@
-# animal
+# fastify-typescript
 
-> An electron-vue project
+> An fastify-typescript
 
 #### Build Setup
 
 ```bash
+# 环境
+node.js  v16.13.1
 # install dependencies
-mkdir node-animal-http
-cd node-animal-http
+mkdir ***
+cd ***
 npm init fastify
 yarn
 #代码编写监听运行
@@ -36,7 +38,4 @@ statusCode = 1001 参数错误
 statusCode = 1002 不存在
 statusCode = 1003 其它错误
 
-#python 3
-
-py -3 .\excal2json_mission.py
 ```
