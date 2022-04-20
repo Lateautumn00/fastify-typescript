@@ -7,6 +7,7 @@
 ```bash
 # 环境
 node.js  v16.13.1
+vscode
 # install dependencies
 mkdir ***
 cd ***
