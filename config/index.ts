@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @Author: lanchao
+ * @Date: 2022-04-15 14:04:12
+ * @LastEditTime: 2022-04-27 11:19:09
+ * @LastEditors: lanchao
+ * @Reference: 
+ */
 export const tokens: any = {
   jwtToken: 'cb47c0ac79a1396g',
   md5Token: 'f9ea6befeb703fb5'
@@ -19,18 +27,18 @@ if (process.env.NODE_ENV === 'production') {
   // 开发 yarn run start:dev
 } else {
   redisNode = {
-    host1: '192.168.1.14',
-    host2: '192.168.1.17',
+    host1: '192.168.184.128',
+    host2: '192.168.184.128',
     port: 6379,
-    prefix: 'animal:',
-    password: 'qknodeonline',
+    prefix: 'zhzy:',
+    password: '',
     db: 2
   };
   mongoNode = {
-    db_user: 'game_animal_demo',
-    db_pwd: 'x9b7wxpf6qlr',
-    db_host: '192.168.1.10:27017,192.168.1.46:27017,192.168.1.42:27017',
-    db_name: 'game_animal',
-    prefix: 'an_'
+    db_user: 'zhzy',
+    db_pwd: 'zhzy',
+    db_host: '192.168.184.128:27017',
+    db_name: 'zhzy',
+    prefix: 'z_'
   };
 }

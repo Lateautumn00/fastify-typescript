@@ -6,9 +6,8 @@
  * @Last Modified time: 2021-12-Mo 02:12:12
  */
 import mongodb from '../middleware/mongo';
-const { mongoNode } = require('../../config/index'); // 引入配置文件;
-const ObjectID = require('mongodb').ObjectID;
-const fast = require('../filter/fast');
+import { mongoNode } from '../../config/index'; // 引入配置文件;
+import fast from '../filter/fast';
 class MongodbModules {
   /**
    * 获取数量
@@ -52,7 +51,7 @@ class MongodbModules {
    * @returns
    */
   static async insert(_collectionName: string, _json: any) {
-    let data = { insertedCount: 0 };
+    let data = { acknowledged: false };
     try {
       data = await mongodb.insert(
         `${mongoNode.prefix}${_collectionName}`,
@@ -71,7 +70,7 @@ class MongodbModules {
    * @returns
    */
   static async insertMany(_collectionName: string, _json: any) {
-    let data = { insertedCount: 0 };
+    let data = { acknowledged: false };
     try {
       data = await mongodb.insertMany(
         `${mongoNode.prefix}${_collectionName}`,
@@ -90,13 +89,13 @@ class MongodbModules {
    * @returns
    */
   static async save(_collectionName: string, _json: any) {
-    let data = { result: { n: 0 } };
+    let data = { acknowledged: false };
     try {
       data = await mongodb.save(`${mongoNode.prefix}${_collectionName}`, _json);
     } catch (_err) {
       fast.clog('error', [_err]);
     }
-    return data.result;
+    return data;
   }
 
   /**
@@ -113,7 +112,7 @@ class MongodbModules {
     _json2: any,
     _json3 = {}
   ) {
-    let data = { result: { n: 0 } };
+    let data = { modifiedCount: 0 };
     try {
       data = await mongodb.update(
         `${mongoNode.prefix}${_collectionName}`,
@@ -124,7 +123,7 @@ class MongodbModules {
     } catch (_err) {
       fast.clog('error', [_err]);
     }
-    return data.result;
+    return data;
   }
 
   /**
@@ -135,7 +134,7 @@ class MongodbModules {
    * @returns
    */
   static async updates(_collectionName: string, _where: any, _json2: any) {
-    let data = { result: { n: 0 } };
+    let data = { modifiedCount: 0 };
     try {
       data = await mongodb.updates(
         `${mongoNode.prefix}${_collectionName}`,
@@ -145,7 +144,7 @@ class MongodbModules {
     } catch (_err) {
       fast.clog('error', [_err]);
     }
-    return data.result;
+    return data;
   }
 
   /**
@@ -168,7 +167,7 @@ class MongodbModules {
    * @returns
    */
   static async deleteMany(_collectionName: string, _where: any) {
-    let data: any = { n: 0 };
+    let data: any = { acknowledged: false };
     try {
       data = await mongodb.deleteMany(
         `${mongoNode.prefix}${_collectionName}`,
@@ -187,7 +186,7 @@ class MongodbModules {
    * @returns
    */
   static async remove(_collectionName: string, _where: any) {
-    let data = { result: { n: 0 } };
+    let data = { acknowledged: false };
     try {
       data = await mongodb.remove(
         `${mongoNode.prefix}${_collectionName}`,
@@ -196,7 +195,7 @@ class MongodbModules {
     } catch (_err) {
       fast.clog('error', [_err]);
     }
-    return data.result;
+    return data;
   }
 
   /**
@@ -205,7 +204,8 @@ class MongodbModules {
    * @returns
    */
   static async getObjectID(_id: any) {
-    return ObjectID(_id);
+    // return ObjectID(_id);
+    return await mongodb.getObjectId(_id);
   }
 }
 export default MongodbModules;
