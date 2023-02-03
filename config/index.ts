@@ -12,8 +12,8 @@ export const tokens: any = {
 }; // 机密密钥
 export const emailConfig = {
   host: 'smtp.exmail.qq.com',
-  user: 'cuilanchao@qknode.com',
-  pass: 'Clc911024',
+  user: '',
+  pass: '',
   status: false, // 是否启用邮件功能
   title: 'fastify-typescript:' // 标题头
 };
